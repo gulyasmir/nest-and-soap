@@ -13,7 +13,6 @@ export class PalindromeService {
 
   async create(createPalindromeDto: CreatePalindromeDto) {
     const checkResult = this.checkPalindrome(createPalindromeDto.text);
-    console.log('checkResult', checkResult);
     return checkResult
       ? (await this.palindromeRepository.save(createPalindromeDto))
         ? 'Паллиндром успешно добавлен'

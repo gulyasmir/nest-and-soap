@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { PalindromeModule } from './modules/palindrome/palindrome.module';
 import { Palindrome } from './modules/palindrome/entities/palindrome.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { SoapClientModule } from './modules/soap-client/soap-client.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       synchronize: true,
     }),
     PalindromeModule,
+    SoapClientModule,
   ],
   controllers: [AppController],
   providers: [AppService],
