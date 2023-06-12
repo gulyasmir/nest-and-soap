@@ -1,0 +1,71 @@
+<definitions name = "WsdlService"
+   targetNamespace = "http://www.examples.com/wsdl/HelloService.wsdl"
+   xmlns = "http://schemas.xmlsoap.org/wsdl/"
+   xmlns:soap = "http://schemas.xmlsoap.org/wsdl/soap/"
+   xmlns:tns = "http://www.examples.com/wsdl/HelloService.wsdl"
+   xmlns:xsd = "http://www.w3.org/2001/XMLSchema">
+ 
+   <message name = "HelloSendRequest">
+      <part name = "firstName" type = "xsd:string"/>
+   </message>
+   <message name = "HelloSendResponse">
+      <part name = "greeting" type = "xsd:string"/>
+   </message>
+   <message name = "PalindromSendRequest">
+      <part name = "firstName" type = "xsd:string"/>
+   </message>	
+   <message name = "PalindromSendResponse">
+      <part name = "greeting" type = "xsd:string"/>
+   </message>
+   <portType name = "HelloPort"> 
+      <operation name = "HelloSend">
+         <input message = "tns:HelloSendRequest"/>
+         <output message = "tns:HelloSendResponse"/>
+      </operation>
+       <operation name = "PallindromSend">
+         <input message = "tns:PalindromSendRequest"/>
+         <output message = "tns:PalindromSendResponse"/>
+      </operation>
+   </portType>
+   <binding name = "Hello_Binding" type = "tns:HelloPort">
+      <soap:binding style = "rpc"
+         transport = "http://schemas.xmlsoap.org/soap/http"/>
+      <operation name = "HelloSend">
+         <soap:operation soapAction = "HelloSend"/>
+         <input>
+            <soap:body
+               encodingStyle = "http://schemas.xmlsoap.org/soap/encoding/"
+               namespace = "urn:examples:helloservice"
+               use = "encoded"/>
+         </input>
+         <output>
+            <soap:body
+               encodingStyle = "http://schemas.xmlsoap.org/soap/encoding/"
+               namespace = "urn:examples:helloservice"
+               use = "encoded"/>
+         </output>
+      </operation>
+       <operation name = "PallindromSend">
+         <soap:operation soapAction = "PallindromSend"/>
+         <input>
+            <soap:body
+               encodingStyle = "http://schemas.xmlsoap.org/soap/encoding/"
+               namespace = "urn:examples:helloservice"
+               use = "encoded"/>
+         </input>	
+         <output>
+            <soap:body
+               encodingStyle = "http://schemas.xmlsoap.org/soap/encoding/"
+               namespace = "urn:examples:helloservice"
+               use = "encoded"/>
+         </output>
+      </operation>
+   </binding>
+   <service name = "WsdlService">
+      <documentation>WSDL File for Wsdl Service</documentation>
+      <port binding = "tns:Hello_Binding" name = "HelloPort">
+         <soap:address
+            location = "http://localhost:8000/" />
+      </port>
+   </service>
+</definitions>
