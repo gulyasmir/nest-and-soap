@@ -12,17 +12,17 @@ export const wsdlService = {
       PallindromSend: function (args) {
         return new Promise(async (resolve) => {
           const data = {
-            text: args.text,
+            text: args.firstName.$value,
           };
-
           const res = await axios
             .post('http://localhost:3000/palindrome', data)
             .then(function (response) {
-              return response.data;
               console.log(response);
+              return response.data;
+             
             })
             .catch(function (error) {
-              console.log(error);
+             // console.log(error);
               return 'false';
             });
           resolve({

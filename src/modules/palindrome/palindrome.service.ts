@@ -13,11 +13,13 @@ export class PalindromeService {
 
   async create(createPalindromeDto: CreatePalindromeDto) {
     const checkResult = this.checkPalindrome(createPalindromeDto.text);
-    return checkResult
-      ? (await this.palindromeRepository.save(createPalindromeDto))
+    const res = checkResult ?  'Это  паллиндром' : 'Это не паллиндром';
+    /* ? (await this.palindromeRepository.save(createPalindromeDto))
         ? 'Паллиндром успешно добавлен'
         : 'Паллиндром не удалось добавить'
       : 'Это не паллиндром';
+    */
+      return res
   }
   private checkPalindrome(text: string) {
     const str: string = this.normalizeString(text);

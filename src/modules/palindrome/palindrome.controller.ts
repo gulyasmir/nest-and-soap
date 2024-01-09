@@ -8,6 +8,7 @@ export class PalindromeController {
 
   @Post()
   create(@Body() createPalindromeDto: CreatePalindromeDto) {
+    console.log('test createPalindromeDto', createPalindromeDto)
     return this.palindromeService.create(createPalindromeDto);
   }
 
