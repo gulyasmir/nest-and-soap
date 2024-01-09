@@ -16,7 +16,7 @@ import { SoapClientModule } from './modules/soap-client/soap-client.module';
       password: 'root',
       database: 'test',
       entities: [Palindrome],
-      synchronize: true,
+    //  synchronize: true,
     }),
     PalindromeModule,
     SoapClientModule,

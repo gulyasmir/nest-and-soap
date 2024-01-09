@@ -7,12 +7,13 @@
 
    <message name="HelloSendRequest">
       <part name="firstName" type="xsd:string" />
+      <part name="lastName" type="xsd:string" />
    </message>
    <message name="HelloSendResponse">
       <part name="greeting" type="xsd:string" />
    </message>
    <message name="PalindromSendRequest">
-      <part name="firstName" type="xsd:string" />
+      <part name="testString" type="xsd:string" />
    </message>
    <message name="PalindromSendResponse">
       <part name="greeting" type="xsd:string" />
@@ -71,7 +72,7 @@
       <documentation>WSDL File for Wsdl Service</documentation>
       <port binding="tns:Hello_Binding" name="HelloPort">
          <soap:address
-            location="http://localhost:8000" />
+            location="http://localhost:8000/wsdl?wsdl" />
       </port>
    </service>
 </definitions>

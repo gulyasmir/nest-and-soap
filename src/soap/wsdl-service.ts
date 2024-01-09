@@ -4,7 +4,7 @@ export const wsdlService = {
   WsdlService: {
     HelloPort: {
       HelloSend: function (args) {
-        const fullName = args.firstName + ' ' + args.lastName;
+        const fullName = args.firstName.$value + ' ' + args.lastName.$value;
         return {
           fullName: fullName,
         };
@@ -12,7 +12,7 @@ export const wsdlService = {
       PallindromSend: function (args) {
         return new Promise(async (resolve) => {
           const data = {
-            text: args.firstName.$value,
+            text: args.testString.$value,
           };
           const res = await axios
             .post('http://localhost:3000/palindrome', data)
