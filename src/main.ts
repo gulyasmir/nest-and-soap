@@ -23,7 +23,7 @@ async function bootstrap() {
 
   //http server example
   const server = http.createServer(function (request, response) {
-    response.end('404: Not Found: ' + request.url);
+    response.end(`<div style="padding:10%; text-align:center;"><h1>SOAP SERVER</h1> <a href= "http://localhost:8000/wsdl?wsdl">go to SOAP</a></div>`);
   });
 
   server.listen(8000);
